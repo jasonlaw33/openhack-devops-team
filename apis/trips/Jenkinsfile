@@ -40,9 +40,11 @@ pipeline {
     }
     post {
   		always {
-    			// One or more steps need to be included within each condition's block.
-			cleanWs()
-			sh "sudo docker rmi ${ImgName}:${ImgTag}"
+            script {
+                // One or more steps need to be included within each condition's block.
+                cleanWs()
+                sh "sudo docker rmi ${ImgName}:${ImgTag}"
+            }
   		}	
 	}
 }
